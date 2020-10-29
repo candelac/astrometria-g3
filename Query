@@ -1,0 +1,15 @@
+ATROMETRIA 2020 - GUIA 3
+QUERY - SDSS - CasJobs 
+-------------------------
+-------------------------
+Tabla2:
+
+DR16
+SELECT TOP 1000
+  s.specObjID, g.spiral, g.elliptical, s.petroMag_u, s.petroMag_g, s.petroMag_r, s.z
+FROM SpecPhoto AS s
+  JOIN zooSpec AS g ON g.specobjid = s.specObjID
+WHERE
+  ((g.spiral = 1) or (g.elliptical = 1))
+  AND (0 < s.z)
+  AND (s.z < 0.3)
